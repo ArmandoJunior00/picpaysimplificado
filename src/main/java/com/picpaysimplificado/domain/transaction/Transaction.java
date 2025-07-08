@@ -1,6 +1,10 @@
 package com.picpaysimplificado.domain.transaction;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import org.springframework.cglib.core.Local;
 
 import com.picpaysimplificado.domain.user.User;
 
@@ -14,6 +18,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity(name = "transactions")
@@ -21,6 +26,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Transaction {
 
@@ -36,5 +42,7 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "receiver_id")
     private User receiver;
+
+    private LocalDateTime timestamp;
 
 }
